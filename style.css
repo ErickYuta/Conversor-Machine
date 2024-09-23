@@ -1,0 +1,74 @@
+body{
+    background-image: url(tech.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.header{
+    background-color: #295264;
+    height: 30vh;
+    padding-top: 20px;
+}
+.header h1{
+    color: #0c1620;
+}
+.header h3{
+    font-size: 32px;
+    color: #fad9a6;
+}
+.links{
+    text-decoration: none;
+    color: white;
+    margin-right: 50px;
+    font-size: 20px;
+}
+.links:hover{
+    background-color: #89373d;
+    padding: 10px;
+}
+.container h3{
+    color: white;
+    font-size: 30px;
+}
+.container input{
+    width: 25%;
+    margin: 0 auto;
+    padding: 10px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+.button{
+    margin-right: 10px;
+    width: 15vw;
+    height: 5vh;
+    border: solid 1px blue;
+    border-radius: 20px;
+    color: white;
+    background-color: blue;
+    transition: background-color 0.5 ease, color 0.5s ease, transform 0.5s ease;
+}
+.button:hover{
+    cursor: pointer;
+    background-color: rgb(88, 88, 217);
+}
+.container{
+    background-color: #452a37;
+    height: 50vh;
+    width: 60vw;
+    margin: 20px;
+    padding-top: 50px;
+}
+.ipt_conversor{
+    margin: 20px;
+    text-align: center;
+    display: none;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+.section-resultados{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 50vw;
+}

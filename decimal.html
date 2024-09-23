@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conversão Decimal</title>
+</head>
+<body> <!-- definição da cor de fundo da página -->
+
+    <center > <!-- elemento para centralizar o conteúdo -->
+    <div class="header">
+        <h1>Bit's Machine</h1> <!-- Título da página -->
+        <h3>Selecione uma base para realizar a conversão</h3>
+            <div class="navegation">
+        <a href="./decimal.html" class="links">Decimal</a>
+        <a href="./binario.html" class="links">Binário</a>
+        <a href="./octal.html" class="links">Octal</a>
+        <a href="./hexadecimal.html" class="links">Hexadecimal</a>
+            </div>
+    </div>
+
+    <div class="container">
+        <h3>Decimal</h3> <!-- título para indicar a entrada em decimal -->
+        <input id="ipt_valor" type="number" placeholder="Digite o valor Decimal"> <!-- campo de entrada para o valor decimal -->
+
+        <br><br>
+
+        <button onclick="converterBases('binario')" class="button" id="ipt_binario">Converter para Binário</button>
+        <button onclick="converterBases('octal')" class="button" id="ipt_octal">Converter para Octal</button>
+        <button onclick="converterBases('hexadecimal')" class="button" id="ipt_hexadecimal">Converter para Hexadecimal</button>
+        <br><br><br>
+        <div class="section-resultados">    
+            <input type="number" id="binarioInput" class="ipt_conversor">
+            <input type="number" id="octalInput" class="ipt_conversor">
+            <input type="text" id="hexadecimalInput" class="ipt_conversor">
+        </div>
+    </div>
+</center>
+
+    <script>
+        function converterBases(base) {
+            var decimal = Number(ipt_valor.value);
+            let bases;
+
+            if(isNaN(decimal) || decimal == ''){
+                alert("Insira um valor válido!");
+                return;
+            }
+
+            if(base == 'binario'){
+                bases = decimal.toString(2);
+                exibirResultado('binarioInput', bases);
+            } else if(base == 'octal'){
+                bases = decimal.toString(8);
+                exibirResultado('octalInput', bases);
+            } else if(base == 'hexadecimal'){
+                bases = decimal.toString(16).toUpperCase();
+                exibirResultado('hexadecimalInput', bases);
+            }
+        }
+        function exibirResultado(id, valor){
+            const input = document.getElementById(id);
+            input.style.display = 'block';
+            input.value = valor;
+        }
+    </script>
+</body>
+</html>

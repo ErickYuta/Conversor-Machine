@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conversão Hexadecimal</title>
+</head>
+
+<body> <!-- definição da cor de fundo da página -->
+
+    <center> <!-- elemento para centralizar o conteúdo -->
+    <div class="header">
+        <h1>Bit's Machine</h1> <!-- Título da página -->
+        <h3>Selecione uma base para realizar a conversão</h3>
+            <div class="navegation">       
+        <a a href="./decimal.html" class="links">Decimal</a>
+        <a href="./binario.html" class="links">Binário</a>
+        <a href="./octal.html" class="links">Octal</a>
+        <a href="./hexadecimal.html" class="links">Hexadecimal</a>
+            </div>
+    </div>
+
+    <div class="container">
+        <h3>Hexadecimal</h3> <!-- título para indicar a entrada em decimal -->
+        <input id="ipt_valor" type="text"  oninput="validarHexadecimal(this)" placeholder="Digite o valor em Hexadecimal"> <!-- campo de entrada para o valor decimal -->
+
+        <br><br>
+
+        <button onclick="converterBases('decimal')" class="button">Converter para Decimal</button>
+        <button onclick="converterBases('binario')" class="button">Converter para Binário</button>
+        <button onclick="converterBases('octal')" class="button">Converter para Octal</button>
+        <br><br><br>
+        <div class="section-resultados">
+            <input type="number" id="decimalInput" class="ipt_conversor">
+            <input type="number" id="binarioInput" class="ipt_conversor">
+            <input type="text" id="octalInput" class="ipt_conversor">
+        </div>
+    </div>
+</center>
+
+    <script>
+       function converterBases(base) {
+            var hexadecimal = ipt_valor.value;
+            let bases;
+
+            if(hexadecimal == ''){
+                alert("Insira um valor válido!");
+                return;
+            }
+
+            if(base == 'decimal'){
+                bases = parseInt(hexadecimal, 16);
+                exibirResultado('decimalInput', bases);
+            } else if(base == 'binario'){
+                bases = parseInt(hexadecimal, 16);
+                var binario = bases.toString(2)
+                exibirResultado('binarioInput', binario);
+            } else if(base == 'octal'){
+                bases = parseInt(hexadecimal, 16);
+                var octal = bases.toString(8)
+                exibirResultado('octalInput', octal);
+            }
+        }
+        function exibirResultado(id, valor){
+            const input = document.getElementById(id);
+            input.style.display = 'block';
+            input.value = valor;
+        }
+        function validarHexadecimal(elemento){
+            if(/[^0123456789]/.test(elemento.value) && /[^A,B,C,D,E,F,a,,b,c,d,e,f]/.test(elemento.value)){
+                alert("Digite apenas os números no intervalo de 0 a 9 e letras no intervalo de A a F");
+                elemento.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
